@@ -1,0 +1,62 @@
+# Eigen 安装
+sudo apt-get install libeigen3-dev
+
+# 头文件包含    
+## “/usr/include/eigen3”
+Core #include<Eigen/Core>，包含Matrix和Array类，基础的线性代数运算和数组操作。
+Geometry #include<Eigen/Geometry>，包含旋转，平移，缩放，2维和3维的各种变换。
+LU #include<Eigen/LU>，包含求逆，行列式，LU分解。
+Cholesky #include<Eigen/Cholesky>，包含LLT和LDLT Cholesky分解。
+SVD `#include<Eigen/SVD>，包含SVD分解。
+QR `#include<Eigen/QR>，包含QR分解。
+Eigenvalues #include<Eigen/Eigenvalues>，包含特征值，特征向量分解。
+Sparse #include<Eigen/Sparse>，包含稀疏矩阵的存储和运算。
+Dense #include<Eigen/Dense>，包含了Core/Geometry/LU/Cholesky/SVD/QR/Eigenvalues模块。
+Eigen #include<Eigen/Eigen>，包含Dense和Sparse。
+
+链接：https://www.jianshu.com/p/931dff3b1b21
+
+# Matrix类
+
+ // Eigen 中所有向量和矩阵都是Eigen::Matrix，它是一个模板类。它的前三个参数为：数据类型，行，列
+    // 声明一个2*3的float矩阵
+    Eigen::Matrix<float, 2, 3> matrix_23;
+
+    // 同时，Eigen 通过 typedef 提供了许多内置类型，不过底层仍是Eigen::Matrix
+    Eigen::Vector3d v_3d;    // 例如 Vector3d 实质上是 Eigen::Matrix<double, 3, 1>，即三维向量
+    Eigen::Matrix<float,3,1> vd_3d;   // Matrix3d 实质上是 Eigen::Matrix<double, 3, 3>
+    Eigen::Matrix3d matrix_33 = Eigen::Matrix3d::Zero(); //初始化为零
+    Eigen::Matrix< double, Eigen::Dynamic, Eigen::Dynamic > matrix_dynamic; // 如果不确定矩阵大小，可以使用动态大小的矩阵
+    Eigen::MatrixXd matrix_x;    //维数不定
+
+    matrix_23.cast<double>()  //强制类型转换
+    matrix_33 = Eigen::Matrix3d::Random();      // 随机数矩阵
+
+    matrix_33.transpose()     // 转置
+    matrix_33.sum()           // 各元素和
+    matrix_33.trace()         // 迹
+    10*matrix_33              // 数乘
+    matrix_33.inverse()       // 逆
+    matrix_33.determinant()   // 行列式
+
+    Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d>  //特征值求解
+    eigen_solver.eigenvalues()     //特征值
+    eigen_solver.eigenvectors()    //特征向量
+
+    x = matrix_NN.colPivHouseholderQr().solve(v_Nd);  //QR分解求解方程组
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+# ROS节点命令
+|  rosnode命令  | 作用 |
+|---|:---:|
+|rosnode list| 列出当前运行的node信息    |
+|rosnode info node_name| 显示node的详细信息    |
+|rosnode kill node_name| 结束某个node  |
+|rosnode ping|  测试连接节点|
+|rosnode maching|列出在特定机器或列表机器上运行的节点|
+|rosnode cleanup|清除不可以到达读注册信息|
