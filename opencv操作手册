@@ -1,0 +1,22 @@
+# 主要包含的头文件 
+
+#include "opencv2/core/core.hpp"
+#include "opencv2/highgui/highgui.hpp"
+
+# CMakeLists.txt
+添加c++ 11标准支持
+set( CMAKE_CXX_FLAGS "-std=c++11" )
+寻找OpenCV库
+find_package( OpenCV REQUIRED )
+添加头文件
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+链接OpenCV库
+target_link_libraries( imageBasics ${OpenCV_LIBS} )
+
+# 主要函数
+
+cv::Mat 
+cv::imread  读一幅图像
+cv::imshow  显示一张图片
+
+
